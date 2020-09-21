@@ -45,7 +45,7 @@ public class Ui {
 
     // add time msg
     public void time(){
-        System.out.println("please add time");
+        System.out.println("please add date: dd/mm/yyyy hhmm eg: 2/12/2019 1800");
     }
 
     public void addTask(){

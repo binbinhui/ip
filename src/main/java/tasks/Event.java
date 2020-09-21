@@ -1,5 +1,7 @@
 package tasks;
 
+import java.util.Date;
+
 /**
  * This is extend class inherited from Tasks.
  * adding event task
@@ -13,7 +15,7 @@ public class Event extends Tasks {
     }
 
     public String toString(){
-        return type + status +" "+description + "(" + time +")";
+        return type + status +" "+description + " | " + time;
     }
 }
 

@@ -1,5 +1,7 @@
 package tasks;
 
+import java.util.Date;
+
 /**
  * This is extend class inherited from Tasks.
  * adding deadline task
@@ -14,7 +16,7 @@ public class Deadline extends Tasks {
     }
 
     public String toString(){
-        return type + status +" "+description +" (" + time +")";
+        return type + status +" "+description +" | " + time;
     }
 
 }

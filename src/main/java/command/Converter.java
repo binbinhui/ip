@@ -5,29 +5,42 @@ import tasks.Deadline;
 import tasks.Event;
 import tasks.Todo;
 
+import java.text.ParseException;
+import java.util.Date;
+
 /**
  * This is a action class, all command wil be exec down here.
  */
 public class Converter {
 
 
-    Storage storage = new Storage();
+    private Storage storage;
+    private Time timeDate;
+    //private String time;
 
     public Converter(){
 
+        storage = new Storage();
+        timeDate = new Time();
     }
 
-    public void saveToDo(String description, String time){
+    public void saveToDo(String description, String time) {
         storage.setCommandName(new Todo(description,time));
     }
 
-
-    public void saveEvent(String description, String time) {
+    public void saveEvent(String description, String time) throws ParseException {
         storage.setCommandName(new Event(description,time));
     }
 
-    public void saveDeadLine(String description, String time){
+    public void saveDeadLine(String description, String time) throws ParseException {
         storage.setCommandName(new Deadline(description,time));
+    }
+
+
+    public void find(String description) throws ParseException {
+        printArray(description);
+
+
     }
 
 
@@ -82,19 +95,32 @@ public class Converter {
     }
 
     // print array list method
-    public void printData() {
+    public void printData() throws ParseException {
        printArray();
     }
 
 
-    private void printArray(){
+    private void printArray() throws ParseException {
             int number = 1;
             for (Object task : storage.getCommandName()) {
-                System.out.println(number + ". " + task.toString());
+                String[] obj = task.toString().split("\\|");
+                Date time = timeDate.timeConverter(obj[1].replaceFirst(" ",""));
+                System.out.println(number + ". "+ obj[0] + " by "+ time);
                 number ++;
             }
     }
 
+    private void printArray(String description) throws ParseException {
+        int number = 1;
+        for (Object task : storage.getCommandName()) {
+            if(task.toString().contains(description)) {
+                String[] obj = task.toString().split("\\|");
+                Date time = timeDate.timeConverter(obj[1].replaceFirst(" ", ""));
+                System.out.println(number + ". " + obj[0] + " by " + time);
+            }
+            number ++;
+        }
+    }
     public boolean checkDataSize(){
         if(storage.getCommandName().isEmpty()){
             return true;

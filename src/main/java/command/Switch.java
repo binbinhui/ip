@@ -3,26 +3,33 @@ package command;
 
 import ui.Ui;
 
+import java.text.ParseException;
+
 /**
  * This is a switch class, all the choices will be make by here.
  */
 
 public class Switch {
 
+    private Time timeDate;
     private boolean task;
+    private boolean timeCheck;
     private static String description;
     private static String time;
+
 
     Converter converter = new Converter();
     Ui ui = new Ui();
 
 
     public Switch(){
+        timeDate = new Time();
+        this.timeCheck=true;
         this.task=true;
     }
 
 
-    public void option() throws DukeException {
+    public void option() throws DukeException, ParseException {
 
 
         // print out welcome msg
@@ -30,6 +37,7 @@ public class Switch {
         // While loop will be exit once the task become false.
         while (task) {
 
+            System.out.println("Please enter");
             // print the choices we have
             descriptionCheck();
 
@@ -99,6 +107,16 @@ public class Switch {
                     }
                     break;
 
+                case "find":
+                    System.out.println("Please type the keyword");
+                    if(converter.checkDataSize()){
+                        System.out.println("No data in the database");
+                    }
+                    else {
+                        converter.find(descriptionCheck());
+                    }
+
+                    break;
                 case "bye":
                     task = false;
                     break;
@@ -121,10 +139,21 @@ public class Switch {
     }
 
     private String timeCheck(){
-        ui.time();
-        time = ui.input();
-        if(time.isEmpty()){
-            System.out.println("No Time has been set");
+        while(timeCheck) {
+            ui.time();
+            time = ui.input();
+            if (time.isEmpty()) {
+                System.out.println("No Time has been set");
+                timeCheck = false;
+            }
+            else {
+                if(timeDate.timeChecker(time)){
+                    timeCheck = false;
+                }
+                else {
+                    System.out.println("Invalid time");
+                }
+            }
         }
         return time;
     }

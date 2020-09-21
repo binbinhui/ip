@@ -1,5 +1,7 @@
 package tasks;
 
+import java.util.Date;
+
 /**
  * This is a class to manage all the tasks
  *

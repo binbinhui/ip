@@ -1,6 +1,8 @@
 package tasks;
 
 
+import java.util.Date;
+
 /**
  * This is extend class inherited from Tasks.
  * adding todo task
@@ -18,7 +20,7 @@ public class Todo extends Tasks {
              return type + status +" "+description;
          }
          else {
-             return type + status + " " + description + " (" + time +")";
+             return type + status + " " + description + " | " + time;
          }
   }
 }

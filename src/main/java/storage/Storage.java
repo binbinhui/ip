@@ -15,18 +15,12 @@ import java.util.Scanner;
  */
 public class Storage {
 
-    //private String filePath="/Users/linbinhui/Documents/TIC4001/data/duke.txt";
-    private ArrayList commandName;
     private String filePath;
-
-    public Storage( String filePath){
-
-        this.commandName = new ArrayList(100);
-        this.filePath=filePath;
-    }
+    private ArrayList commandName;
 
     public Storage() {
-
+        this.commandName = new ArrayList(100);
+        this.filePath="/Users/linbinhui/Documents/TIC4001/data/duke.txt";
     }
 
     public void setCommandName(Tasks obj){
@@ -67,7 +61,7 @@ public class Storage {
             for (Object task : commandName) {
                 System.out.println(task.toString());
                 String obj = task.toString().replace("][", "|").replace("[", "")
-                        .replace("]", "|").replace("(", "|").replace(")", "")
+                        .replace("]", "|")
                         .replace("x", "0").replace("c", "1");
                 myWriter.write(obj);
             }
