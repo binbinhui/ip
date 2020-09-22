@@ -38,6 +38,7 @@ public class Ui {
         System.out.println("done       -Mark a task to be done");
         System.out.println("delete     -Delete a task");
         System.out.println("load       -Load task from the file");
+        System.out.println("find       -Find a task contain the key word");
         System.out.println("bye        -Exit the task");
         divider();
 

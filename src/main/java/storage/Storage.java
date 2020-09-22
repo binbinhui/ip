@@ -108,7 +108,7 @@ public class Storage {
         }
         else{
             String word3=words[3];
-            data = "[" + word0 + "]" + "[" + word1 + "] " + word2 + "(" + word3 + ")";
+            data = "[" + word0 + "]" + "[" + word1 + "] " + word2 + " | " + word3;
         }
         setCommandName(data);
     }
