@@ -8,11 +8,17 @@ Hello from
 Hello! I'm Duke
 What can I do for you?
 
+Please enter
 -----------------------------------------------------------------
-Press 1: Add a to do task
-Press 2: Add an event
-Press 3: Add a deadline task
-Press 4: List all task
-Press 5: Mark a task to be done
-Press 6: Exit
+help       -Check the user manual
+todo       -Add a to do task
+event      -Add an event 
+deadline   -Add a deadline task
+list       -List all task
+done       -Mark a task to be done
+delete     -Delete a task
+load       -Load task from the file
+find       -Find a task contain the key word
+bye        -Exit the task
 -----------------------------------------------------------------
+Please enter
